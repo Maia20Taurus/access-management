@@ -26,7 +26,7 @@ def create_unix_user(username: str):
     random_pass = secrets.token_hex(32)
 
     # Create the user in the mammoth cluster users
-    command = f"useradd {username} -p {random_pass} -g {MAMMOTH_USERS_GROUP}"
+    command = f"useradd {username} -p {random_pass} -g {MAMMOTH_USERS_GROUP} -m"
     subprocess.run(command, check=True, shell=True)
 
     print(f"User {username} created successfully!")
